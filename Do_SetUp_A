@@ -1,0 +1,261 @@
+
+if [ 1 == 0 ]; then
+COMMENT START ============================================
+TO DO LIST
+[]  add embedid email report to notify of use
+[]  update use of printf + better understanding of use
+[]  design banner and 
+[]  get github working properly
+[]  extract .cfg file and customise and re-install
+[]  extract report data to cloud storage
+
+
+
+COMMENT END ==============================================
+fi
+
+
+#! /bin/bash
+s=$1
+#s=5
+now=$(date)
+
+# make sure we're root
+if [ "$HOME" != "/root" ]
+then
+    printf "Please run while logged in as root\n"
+    exit 1
+fi
+printf "we are root!!!"
+. ~/.bashrc                                                                     # Seems to be necessary otherwise changes have no effect
+sleep $s
+if [ ! -f ~/.bashrc.bak ]                                                           # Check if bashrc.bak has already been copied. If yes then skip
+then
+    # fix bashrc
+    cp /root/.bashrc /root/.bashrc.bak                                              # bak Up bashrc incase I fuck it up
+    echo '. ~/.bash_aliases' >> ~/.bashrc
+    
+        
+    #cp "/home/$(fgrep 1000:1000 /etc/passwd | cut -d: -f1)/.bashrc" /root/.bashrc  # not sure what this does 
+    echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc && source ~/.bashrc        # ignore duplicate commands in the history.
+    echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc && source ~/.bashrc
+    echo 'export HISTSIZE=5000' >> ~/.bashrc && source ~/.bashrc  
+    echo 'export HISTFILESIZE=10000' >> ~/.bashrc && source ~/.bashrc
+    echo 'shopt -s histappend' >> /root/.bashrc                                            # Append Bash Commands to History File
+    echo 'export PROMPT_COMMAND = history -a' >> /root/.bashrc                                    # Store Bash History Immediately
+    echo 'export HISTIGNORE=ls:ps:history' >> /root/.bashrc                              # Ignore Specific Commands
+    echo 'shopt -s expand_aliases' >> /root/.bashrc                                                        # enable command aliasing
+    echo 'alias do1="curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_Dev.sh | bash"'
+    echo 'alias orgrc="rm .bashrc; mv .bashrc.bak .bashrc"'
+    . ~/.bash_aliases
+    #mkdir -p ~/Downloads 2>/dev/null                                             # make sure Downloads dir exists
+    mkdir -p ~/Downloads &> /dev/null                                            # &> redirects stdout and stderr to file
+    #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+    # skip prompts in apt-upgrade, etc.
+    #export DEBIAN_FRONTEND=noninteractive
+    alias apt='yes "" | apt-get -o Dpkg::Options::="--force-confdef" -y'
+    . /root/.bashrc                                                                 # Re-run source .bashrc file
+    printf '\n============================================================\n'
+    printf '[+]  .bashrc.bak did not exist on your filesystem before this run. \n'
+    printf   "%s\n" "$now"
+    printf '============================================================\n\n'
+    sleep $s
+else
+    printf '\n============================================================\n'
+    printf '[+]  .bashrc.bak does exists on your filesystem already.\n'
+    printf   "%s\n" "$now"
+    printf '============================================================\n\n'
+    sleep $s
+fi
+sleep $s
+. ~/.bashrc
+. ~/.bash_aliases
+
+# skip prompts in apt-upgrade, etc.
+#export DEBIAN_FRONTEND=noninteractive
+#alias apt='yes "" | apt-get -o Dpkg::Options::="--force-confdef" -y'
+
+printf '\n============================================================\n'
+printf '[+] Updating System\n'
+printf '============================================================\n\n'
+apt update -y
+apt upgrade -y
+sleep $s
+
+apt install wget
+apt install git
+
+
+#upload functions (zz_functions)
+printf '\n============================================================\n'
+printf '[+] install functions in file zz_functions\n'
+printf   "%s\n" "$now"
+printf '============================================================\n\n'
+#mkdir -p ~/zz_functions 2>/dev/null 
+#rm -r ~/zz_functions 2>/dev/null || true
+rm -r ~/zz_functions &> /dev/null
+wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_functions
+sleep $s
+
+
+#upload scripts (zz_scripts)
+printf '\n============================================================\n'
+printf '[+] install scripts in file zz_scripts\n'
+printf '============================================================\n\n'
+#mkdir -p ~/zz_scripts 2>/dev/null
+#rm -r ~/zz_scripts 2>/dev/null || true
+rm -r ~/zz_scripts &> /dev/null
+wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_scripts
+sleep $s
+
+
+printf '\n============================================================\n'
+printf '[+] install reports directory zz_reports\n'
+printf '============================================================\n\n'
+if [ ! -d ~/zz_reports ]
+then
+    mkdir ~/zz_reports
+fi
+sleep $s
+
+
+printf '\n============================================================\n'
+printf '[+] install bash_alias file \n'
+printf '============================================================\n\n'
+rm -r ~/.bash_aliases &> /dev/null
+#mkdir -p ~/.bash_aliases
+#wget -P ~/.bash_aliases https://raw.githubusercontent.com/Gracetown58/DO/master/.bash_aliases
+wget https://raw.githubusercontent.com/Gracetown58/DO/master/.bash_aliases
+sleep $s
+
+
+printf '\n============================================================\n'
+printf '[+] install NordVPN\n'
+printf '============================================================\n\n'
+if [ ! -d '~/nordvpn*']
+then
+    wget https://raw.githubusercontent.com/leighton-0/kali-setup/master/nordvpn-release_1.0.0_all.deb
+    apt install -y ./nordvpn-release_1.0.0_all.deb
+fi
+apt update
+apt install nordvpn
+
+# COMMENT STARTS ===================THIS SECTION ISN'T WORKING
+if (1 == 0); then
+
+nordvpn login --username leig@clucas.eu --password iloveanna
+sleep 5
+#nordvpn connect "#656"
+#nordvpn -c -n "United States #3710"
+nordvpn connect --group Dedicated_IP Germany
+sleep 10
+nordvpn status
+#sleep 5
+
+
+#script to retrieve the public ip of your internet connection
+#Author: Luca Radaelli <lradaelli85@users.noreply.github.com> 
+#TO TO - needs taking out as a  function
+
+DIG=`which dig`
+   if [ $? -eq 0 ]
+    then
+     HOST="myip.opendns.com"
+     DNS="resolver1.opendns.com"
+     OPTIONS="+short +time=3 +tries=1"
+     RES=`$DIG $OPTIONS $HOST @$DNS 2> /dev/null`
+     if [ -z $RES ]
+       then
+        echo "NoInternet"
+       else
+        echo "THE SEVER IP IS $RES"
+     fi
+   fi
+
+
+sleep 60
+nordvpn disconnect
+nordvpn status
+sleep 10
+# COMMENT ENDS ===========---------------
+fi
+
+#Check it Reconftw already exists. If yes then loads config filw 
+#DIR="/reconftw/"
+if [ -d ~/reconftw ]
+then
+    # Load custome config file
+    printf '\n============================================================\n'
+    printf '[+] reconftw alread exists\n'
+    printf '============================================================\n\n'
+    sleep $s
+    printf '\n============================================================\n'
+    printf '[+] backing up old .cfg file & install custom config file\n'
+    printf '============================================================\n\n'
+    cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
+    wget -P ~/reconftw https://raw.githubusercontent.com/Gracetown58/DO/master/reconftw.cfg
+    sleep $s   
+else
+
+printf '\n============================================================\n'
+printf '[+] reconftw doesnt exists\n'
+printf '[+] installilng reconftw\n'
+printf '============================================================\n\n'
+sleep $s
+
+
+#printf '\n============================================================\n'
+#printf '[+] "install reconftw"\n'
+#printf '============================================================\n\n'
+#sleep $s
+
+git clone https://github.com/six2dez/reconftw
+cd reconftw/
+./install.sh
+fi
+./reconftw.sh -d target.com -r
+cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
+wget -P ~/reconftw https://raw.githubusercontent.com/Gracetown58/DO/master/reconftw.cfg
+
+sleep 600
+poweroff
+
+# COMMENT STAARTS ===================THIS SECTION ISN'T WORKING
+if (1 == 0); then
+
+
+printf '\n============================================================\n'
+printf '[+] Auto MAC spoof on start up - assuming wlan0\n'
+printf '============================================================\n\n'
+#touch /etc/systemd/system/changemac@.service
+wget -P /etc/systemd/system https://raw.githubusercontent.com/Gracetown58/DO/master/changemac@.service
+systemctl enable changemac@wlan0.service
+sleep $s
+
+
+printf '\n============================================================\n'
+printf '[+] Auto Random Host name\n'
+printf '============================================================\n\n'
+git clone https://github.com/tasooshi/namechanger.git
+cd namechanger
+make install
+cd ~/
+sleep $s
+
+
+printf '\n============================================================\n'
+printf '[+] copy sources.list.d non-kali repositories to /etc/apt/\n'
+printf '============================================================\n\n'
+rm -r /etc/apt/sources.list.d
+wget -P '/etc/apt/' https://raw.githubusercontent.com/leighton-0/kali-setup/master/sources.list.d 
+sleep $s 
+
+
+printf '\n============================================================\n'
+printf '[+] Updating System\n'
+printf '============================================================\n\n'
+apt update -y
+apt upgrade -y
+
+# COMMENT ENDS ===========---------------
+fi
