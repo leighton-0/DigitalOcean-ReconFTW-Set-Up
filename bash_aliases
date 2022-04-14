@@ -4,15 +4,136 @@
 #			My Aliases File			        #
 #################################################################
 
+# Just a jumbled collection of mine and others aliases - 
+#	Needs reconciling and sorting
 
-lias ..='cd ..'
+    alias bc="bc -l"
+
+
+# Estimate file space usage to maximum depth
+
+    alias du1="du -d 1"
+
+# Git commands
+
+    alias gs="git status"
+    alias gst="git status -sb"
+    alias gl="git log"
+    alias ga="git add"
+    alias gaa="git add -A"
+    alias gal="git add ."
+    alias gall="git add ."
+    alias gca="git commit -a"
+    alias gc="git commit -m"
+    alias gcot="git checkout"
+    alias gchekout="git checkout"
+    alias gchckout="git checkout"
+    alias gckout="git checkout"
+    alias go="git push -u origin"
+    alias gsh='git stash'
+    alias gw='git whatchanged'
+    alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    alias nah="git clean -df && git checkout -- ."
+
+# History commands
+
+    alias h="history"
+    alias h1="history 10"
+    alias h2="history 20"
+    alias h3="history 30"
+    alias hgrep='history | grep'
+
+# List commands
+
+    alias l="ls"
+    alias l='ls -lAh'
+    alias ls="ls -a"
+    alias la="ls -a"
+    alias ll="ls -al"
+
+# Ping Commands
+
+    alias pg="ping google.com -c 5"
+    alias pt="ping facebook.com -c 5"
+    alias ping="ping -c 5"
+    alias fastping="ping -c 100 -s.2"
+
+# Exit Command
+
+    alias :q="exit"
+    alias ext="exit"
+    alias xt="exit"
+    alias by="exit"
+    alias bye="exit"
+    alias die="exit"
+    alias quit="exit"
+
+# System state
+
+    alias reboot="sudo /sbin/reboot"
+    alias poweroff="sudo /sbin/poweroff"
+    alias halt="sudo /sbin/halt"
+    alias shutdown="sudo /sbin/shutdown"
+    alias flighton='sudo rfkill block all'
+    alias flightoff='sudo rfkill unblock all'
+    alias snr='sudo service network-manager restart'
+
+# Show open ports
+
+    alias ports='sudo netstat -tulanp'
+
+# Free and Used
+
+    alias meminfo="free -m -l -t"
+
+# Get top process eating memory
+
+    alias psmem="ps auxf | sort -nr -k 4"
+    alias psmem10="ps auxf | sort -nr -k 4 | head -10"
+
+# Get top process eating cpu
+
+    alias pscpu="ps auxf | sort -nr -k 3"
+    alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
+
+# Get details of a process
+
+    alias paux='ps aux | grep'
+
+# Get server cpu info
+
+    alias cpuinfo="lscpu"
+
+# Get GPU ram on desktop / laptop
+
+    alias gpumeminfo="grep -i --color memory /var/log/Xorg.0.log"
+
+# Grabs the disk usage in the current directory
+
+    alias usage='du -ch | grep total'
+
+# Gets the total disk usage on your machine
+
+    alias totalusage='df -hl --total | grep total'
+
+# Shows the individual partition usages without the temporary memory values
+
+    alias partusage='df -hlT --exclude-type=tmpfs --exclude-type=devtmpfs'
+
+# Gives you what is using the most space. Both directories and files. Varies on current directory
+
+    alias most='du -hsx * | sort -rh | head -10'
+
+
+
+
+
+alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias la='ls -a'
-alias rm='rm -i' #-i prompts user before deletion
-alias cp='cp -i' #-i prompts user before overwriting
 
 alias c='clear'
 
