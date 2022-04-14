@@ -1,35 +1,7 @@
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@Gracetown58
-Gracetown58 /
-DO
-Public
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-DO/bash_aliases
-@Gracetown58
-Gracetown58 Rename .bash_aliases to bash_aliases
-Latest commit 1a1039c 6 hours ago
-History
-1 contributor
-174 lines (150 sloc) 4.56 KB
 
 #################################################################
-#			My Aliases File			#
+#			My Aliases File			        #
 #################################################################
 
 
