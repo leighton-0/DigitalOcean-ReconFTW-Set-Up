@@ -1,4 +1,4 @@
-# Digital-Ocean---ReconFTW-Set-Up
+# Digital-Ocean / ReconFTW-Set-Up Script
 The development of a script for the fast deployment of ReconFTW on a DO Droplet
 
 
