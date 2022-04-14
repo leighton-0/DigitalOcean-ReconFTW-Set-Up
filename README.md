@@ -1,16 +1,5 @@
 # STILL IN INITIAL DEVELOPMENT
 
-# Digital-Ocean / ReconFTW-Set-Up Script
-The development of a script for the fast deployment of ReconFTW on a DO Droplet
-
-
-This is currently in develpment and need work before it can be deployed.
-
-I'm a hobiest coder - please be gently with any comments.
-
-I would welcome comments and advice.
-
-======================================================================
 
 This script is to install ReconFTW on a Digital Ocean Droplet. Its aim, is to standardise an install and be able to quickly deploy.
 It assumes that a debian 11 platform has been initialised within a DO Droplet.
@@ -27,9 +16,23 @@ Installs
 ===============================================================
 snippet>
   <content><![CDATA[
-# ${1:Project Name}
-TODO: Write a project description
+# ReconFTW Setup for Digital Ocean Droplet
+
+## project description
+This is currently in develpment and need work before it can be deployed.
+
+I'm a hobiest coder - please be gently with any comments.
+
+I would welcome comments and advice.
+The development of a script for the fast deployment of ReconFTW on a DO Droplet
+
 ## Installation
+
+Load the complete script:-
+curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_1.sh | bash
+
+curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_Dev.sh | bash
+
 TODO: Describe the installation process
 ## Usage
 TODO: Write usage instructions
