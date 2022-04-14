@@ -1,0 +1,86 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@Gracetown58
+Gracetown58 /
+DO
+Public
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+DO/zz_functions
+@Gracetown58
+Gracetown58 Update zz_functions
+Latest commit 3c5d0e9 12 days ago
+History
+1 contributor
+41 lines (31 sloc) 935 Bytes
+
+
+#################################################################
+#			My Functions File			#
+#################################################################
+
+
+mybanner()
+{
+  echo "+------------------------------------------+"
+  printf "| %-40s |\n" "`date`"
+  echo "|                                          |"
+  printf "|`tput bold` %-40s `tput sgr0`|\n" "$@"
+  echo "+------------------------------------------+"
+}
+
+
+function find_largest_files() {
+    du -h -x -s -- * | sort -r -h | head -20;
+}
+
+
+# Grep (search) through your history for previous run commands
+function hg() {
+    history | grep "$1";
+}
+
+
+# start a new project with Git:
+function git_init() {
+    if [ -z "$1" ]; then
+        printf "%s\n" "Please provide a directory name.";
+    else
+        mkdir "$1";
+        builtin cd "$1";
+        pwd;
+        git init;
+        touch readme.md .gitignore LICENSE;
+        echo "# $(basename $PWD)" >> readme.md
+    fi
+}
+
+    © 2022 GitHub, Inc.
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Loading complete
