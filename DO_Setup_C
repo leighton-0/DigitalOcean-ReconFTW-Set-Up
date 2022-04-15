@@ -28,9 +28,16 @@ fi
 
 #Check it Reconftw already exists. If yes then loads config filw 
 #DIR="/reconftw/"
-if [ -d ~/reconftw ]
-then
-    # Load custome config file
+if [ ! -d ~/reconftw ]
+    then
+    printf '[+] reconftw doesnt exists\n'
+    printf '[+] "install reconftw"\n'
+    git clone https://github.com/six2dez/reconftw
+    cd reconftw/
+    ./install.sh
+fi
+
+ Load custome config file
    
     printf '[+] reconftw alread exists\n'
 
@@ -63,23 +70,6 @@ then
     remember to source it   <<====
     
 else
-
-printf '\n============================================================\n'
-printf '[+] reconftw doesnt exists\n'
-printf '[+] installilng reconftw\n'
-printf '============================================================\n\n'
-sleep $s
-
-
-#printf '\n============================================================\n'
-#printf '[+] "install reconftw"\n'
-#printf '============================================================\n\n'
-#sleep $s
-
-git clone https://github.com/six2dez/reconftw
-cd reconftw/
-./install.sh
-fi
 #./reconftw.sh -d target.com -r
 cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/Gracetown58/DO/master/reconftw.cfg
