@@ -1,24 +1,7 @@
 
-if [ 1 == 0 ]; then
-COMMENT START ============================================
-TO DO LIST
-[]  add embedid email report to notify of use
-[]  update use of printf + better understanding of use
-[]  design banner and 
-[]  get github working properly
-[]  extract .cfg file and customise and re-install
-[]  extract report data to cloud storage
-
-
-
-COMMENT END ==============================================
-fi
-
-
 #! /bin/bash
-s=$1
-#s=5
-now=$(date)
+s1=1
+s2=5
 
 
 apt install wget
