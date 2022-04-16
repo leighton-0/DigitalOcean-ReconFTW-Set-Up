@@ -37,8 +37,6 @@ fi
 # COMMENT BLOCK ENDS ============================
 
 
-
-
 #! /bin/bash
 s1=1
 s2=5
@@ -57,14 +55,6 @@ then
 fi
 sleep $s
 
-
-
-# COMMENT STARTS ====================EXAMPLE STARTS
-if (1 == 0); then
-
-
-fi
-# COMMENT ENDS ===========-----------EXAMPLE ENDS
 
 #Check it Reconftw already exists. If yes then loads config filw 
 #DIR="/reconftw/"
