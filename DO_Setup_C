@@ -97,10 +97,7 @@ printf '[+] The script to  run the .env file is upladed here\n'
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh.git
 chmod +X setenv.sh
 source setenv.sh
-    
-    
+        
 #./reconftw.sh -d target.com -r
-cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
-wget -P ~/reconftw https://raw.githubusercontent.com/Gracetown58/DO/master/reconftw.cfg
 
 
