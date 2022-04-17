@@ -1,8 +1,7 @@
-# STILL work in progress
 
-# ReconFTW Setup for Digital Ocean Droplet
+# ReconFTW Setup for Digital Ocean Droplet  work in progress
 
-## project description
+## Project Description
 A standardised reconftw set up.
 This script is to install ReconFTW on a Digital Ocean Droplet. Its aim, is to standardise an install and be able to quickly deploy.
 It was built for a debian platfrom and assumes that has been initialised within a DO Droplet.
