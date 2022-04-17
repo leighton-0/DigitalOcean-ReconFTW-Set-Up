@@ -1,43 +1,6 @@
 
 
 
-# COMMENT BLOCK STARTS ====================
-if (1 == 0); then
---------------------------
-To set up a file containing all your api and other "secret keys" do the following.
-create a file called env.txt
-the first entry is(for testing)
-    FIRST_NAME=Agnes
-    LAST_NAME=Obel
-copy all the api and other key to be read by reconftw (both config.ini and config.cfg) into it.
-For security i keep this on my local drive - not on github.
-After installation of reconftw I manually copy this env.txt file into the reconftw directory.
-There is probably a secure of doing this automatically - its on the TD list
-Next
-Create a script called <setenv.sh>.
-Copy the following into it
-    #!/bin/bash
-    # Show env vars
-    grep -v '^#' .env
-
-    # Export env vars
-    export $(grep -v '^#' .env | xargs)
-chmod +X setenv.sh
-source setenv.sh
-
-confirm env vars is working do below
-    echo "${FIRST_NAME} ${LAST_NAME}"
-should return.
-FIRST_NAME=Agnes
-LAST_NAME=Obel
-
-NOTE;
-You need to reference all api key environmentl variavbes in both the ini and cfg files
-
--------------------------------
-fi
-# COMMENT BLOCK ENDS ============================
-
 
 #! /bin/bash
 s1=5                                  # Slows scritpt down so you can see whats going on
@@ -96,7 +59,46 @@ wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-Rec
 chmod +X setenv.sh
 source setenv.sh
 ./ setenv.sh
-        
+   
+   
+# COMMENT BLOCK STARTS ====================
+if (1 == 0); then
+--------------------------
+To set up a file containing all your api and other "secret keys" do the following.
+create a file called env.txt
+the first entry is(for testing)
+    FIRST_NAME=Agnes
+    LAST_NAME=Obel
+copy all the api and other key to be read by reconftw (both config.ini and config.cfg) into it.
+For security i keep this on my local drive - not on github.
+After installation of reconftw I manually copy this env.txt file into the reconftw directory.
+There is probably a secure of doing this automatically - its on the TD list
+Next
+Create a script called <setenv.sh>.
+Copy the following into it
+    #!/bin/bash
+    # Show env vars
+    grep -v '^#' .env
+
+    # Export env vars
+    export $(grep -v '^#' .env | xargs)
+chmod +X setenv.sh
+source setenv.sh
+
+confirm env vars is working do below
+    echo "${FIRST_NAME} ${LAST_NAME}"
+should return.
+FIRST_NAME=Agnes
+LAST_NAME=Obel
+
+NOTE;
+You need to reference all api key environmentl variavbes in both the ini and cfg files
+
+-------------------------------
+fi
+# COMMENT BLOCK ENDS ============================
+
+   
 #./reconftw.sh -d target.com -r
 
 
