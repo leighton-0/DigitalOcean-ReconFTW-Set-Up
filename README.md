@@ -6,6 +6,8 @@ It assumes that a debian 11 platform has been initialised within a DO Droplet.
 Load the complete script:-
 curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_1.sh | bash
 
+curl -k -s https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/DO_Setup_0.sh | bash
+
 curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_Dev.sh | bash
 
 It carries out the following
