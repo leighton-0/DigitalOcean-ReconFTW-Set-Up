@@ -1,13 +1,9 @@
 
-
-
-
-#! /bin/bash
+#!/bin/bash
 s1=5                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
-
 printf '[+] install reports directory zz_reports\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
