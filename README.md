@@ -29,7 +29,7 @@ The development of a script for the fast deployment of ReconFTW on a DO Droplet
 ## Installation
 
 Load the complete script:-
-curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_1.sh | bash
+curl -k -s https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/DO_Setup_0.sh | bash
 
 curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_Dev.sh | bash
 
