@@ -4,6 +4,11 @@
 This script is to install ReconFTW on a Digital Ocean Droplet. Its aim, is to standardise an install and be able to quickly deploy.
 It assumes that a debian 11 platform has been initialised within a DO Droplet.
 Load the complete script:-
+
+curl -k -s https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/DO_Setup_0 | bash
+
+
+
 curl -k -s https://raw.githubusercontent.com/Gracetown58/DO/main/DO_Setup_1.sh | bash
 
 curl -k -s https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/DO_Setup_0.sh | bash
