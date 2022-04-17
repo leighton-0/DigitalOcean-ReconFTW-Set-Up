@@ -5,7 +5,7 @@ s1=5                                  # Slows scritpt down so you can see whats 
 apt install wget
 apt install git
 
-#printf '[+] install reports directory zz_reports\n'
+printf '[+] install reports directory zz_reports'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
     mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
