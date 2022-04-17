@@ -11,8 +11,10 @@ Installs
   reconftw
 
 ## Installation
-the ?????? rev 0 represents the initial release. All alpha revisions are development revs
-copy fillowing inti the droplet CL:-
+The ?????? rev 0 represents the initial release. 
+All alpha revisions are development revs
+
+Copy fillowing inti the droplet CL:-
 
 curl -k -s https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/DO_Setup_0 | bash
 
