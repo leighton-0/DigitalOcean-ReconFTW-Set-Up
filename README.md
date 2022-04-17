@@ -1,5 +1,5 @@
 
-# ReconFTW Setup for Digital Ocean Droplet  work in progress
+# ReconFTW Setup for Digital Ocean Droplet ==>> work in progress
 
 ## Project Description
 A standardised reconftw set up.
