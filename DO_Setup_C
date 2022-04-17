@@ -9,7 +9,7 @@ create a file called env.txt
 the first entry is(for testing)
     FIRST_NAME=Agnes
     LAST_NAME=Obel
-copy all the api and other key to be read by reconftw into it.
+copy all the api and other key to be read by reconftw (both config.ini and config.cfg) into it.
 For security i keep this on my local drive - not on github.
 After installation of reconftw I manually copy this env.txt file into the reconftw directory.
 There is probably a secure of doing this automatically - its on the TD list
@@ -31,28 +31,28 @@ should return.
 FIRST_NAME=Agnes
 LAST_NAME=Obel
 
+NOTE;
+You need to reference all api key environmentl variavbes in both the ini and cfg files
+
 -------------------------------
 fi
 # COMMENT BLOCK ENDS ============================
 
 
 #! /bin/bash
-s1=1                            # Slows scritpt down so you can see whats going on
-s2=5
+s1=5                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
 
 printf '[+] install reports directory zz_reports\n'
 
-if [ ! -d ~/zz_reports ]         #Check if zz_reports dir already exists. If no then creates directory
-then
-    mkdir ~/zz_reports
+if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
+    mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
 fi
 sleep $s1
 
-    if [ ! -d ~/reconftw ]       #Check it Reconftw already exists. If no then loads reconftw program        
-then
+if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program        
     printf '[+] reconftw doesnt exists installing reconftw\n'
     sleep $s1
     git clone https://github.com/six2dez/reconftw
@@ -62,11 +62,11 @@ fi
 printf '[+] reconftw alread exists\n'
 sleep $s1
  
-#Load custome config file for reconftw. This is over writted each time the this script is run.
+#Load custome config file for reconftw and amass. This is over writted each time the this script is run.
   
 printf '[+] backing up old .cfg file & install new custom config file\n'
 sleep $s1
-   
+
 cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
 sleep $s1
@@ -74,18 +74,16 @@ sleep $s1
 #Load custome config.ini file for amass This is over writted each time the this script is run.
     
 printf '[+] backing up old  amass .ini file & install custom .ini file\n'
-    
 
-#cp ~/.config/amass/config.ini ~/.config/amass/config.ini.bak; rm -r p ~/.config/amass/config.ini
+#cp ~/.config/amass/config.ini ~/.config/amass/config.ini.bak; rm -r ~/.config/amass/config.ini     #legacy
 mv ~/.config/amass/config.ini ~/.config/amass/config.ini.bak
-wget -P ~/.config/amass/ https://raw.githubusercontent.com/Gracetown58/DO/master/reconftw.cfg  ????????????
-sleep $s
+wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
+sleep $s1
     
 printf '\n============================================================\n'
-printf '[+] REMEMBER TO UPLOAD THE .ENV FILE CONTAINING api keys \n'
+printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
 printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file is upladed to the \s\n'
-printf '[+] The empty .env file is created here\n'
 printf '============================================================\n\n'
 mkdir ~/.env
 upload script to run .env  <<=====
@@ -97,6 +95,7 @@ printf '[+] The script to  run the .env file is upladed here\n'
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh.git
 chmod +X setenv.sh
 source setenv.sh
+./ setenv.sh
         
 #./reconftw.sh -d target.com -r
 
