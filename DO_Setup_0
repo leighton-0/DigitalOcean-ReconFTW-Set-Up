@@ -91,6 +91,25 @@ LAST_NAME=Obel
 NOTE;
 You need to reference all api key environmentl variavbes in both the ini and cfg files
 
+code snipet ==start
+ELLOW="\e[33m"
+GREEN="\e[1;32m"
+RED="\e[1;31m"
+ENDCOLOR="\e[0m"
+
+echo -e "${YELLOW}"
+echo -e "====================================="
+echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
+echo -e "====================================="
+echo -e "| Thank you for using this script.  |"
+echo -e "| Give me a star if it's useful.    |"
+echo -e "====================================="
+echo -e "${ENDCOLOR}"
+echo -e "${YELLOW}"
+
+
+code snipet == finish
+
 -------------------------------
 fi
 # COMMENT BLOCK ENDS ============================
