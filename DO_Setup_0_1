@@ -5,7 +5,7 @@
 ##               Reconftw Set Up Script                             ##
 #######################################################################
 
-s1=5                                  # Slows scritpt down so you can see whats going on
+s=5                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
@@ -16,30 +16,30 @@ printf '[+] install reports directory zz_reports'
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
     mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
 fi
-sleep $s1
+sleep $s
 
 if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program
     printf '[+] reconftw doesnt exists installing reconftw\n'
-    sleep $s1
+    sleep $s
     git clone https://github.com/six2dez/reconftw
     cd reconftw/
     ./install.sh
 fi
 printf '[+] reconftw alread exists\n'
-sleep $s1
+sleep $s
 printf '[+] loading custom reconftw.cfg and amass config.ini files\n'
 rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
 rm -r ~/.config/amass/config.ini
 wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
-sleep $s1
+sleep $s
 
 printf '\n============================================================\n'
 printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
 printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file is upladed to the \s\n'
 printf '============================================================\n\n'
-sleep $s1
+sleep $s
 mkdir ~/reconftw/.env           # Place all API & secret keys in here
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
@@ -51,7 +51,7 @@ source setenv.sh
 
 printf '[+] Prove env file is working \n'
 echo "${FIRST_NAME} ${LAST_NAME}"
-sleep $s1
+sleep $s
 printf '\n============================================================\n'
 printf '[+] Remember to add to the .env file all api keys \n'
 printf '[+] The empty .env file is created here\n'
@@ -59,7 +59,7 @@ printf '[+] The script to  run the .env file needs to to included in the start s
 printf '[+] targets are listed in targets.txt loaded in the reconftw dir\n'
 printf '[+] start script './ setenv.sh && ./reconftw.sh -d target.com -r
 printf '============================================================\n\n'
-sleep $s1
+sleep $s
 
 # COMMENT BLOCK STARTS ====================
 if (1 == 0); then
