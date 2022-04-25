@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 ######################################################################
@@ -63,7 +62,7 @@ sleep $s
 
 # COMMENT BLOCK STARTS ====================
 if (1 == 0); then
---------------------------
+#--------------------------
 To set up a file containing all your api and other "secret keys" do the following.
 create a file called env.txt
 the first entry is(for testing)
@@ -116,9 +115,3 @@ code snipet == finish
 -------------------------------
 fi
 # COMMENT BLOCK ENDS ============================
-
-
-#./reconftw.sh -d target.com -r
-# test line
-
-klkjljlkjlljljll
