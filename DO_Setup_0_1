@@ -10,7 +10,7 @@ apt install wget
 apt install git
 
 
-printf '[+] install reports directory zz_reports'
+printf '\nn[+] install reports directory zz_reports'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
     mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
@@ -61,7 +61,7 @@ printf '============================================================\n\n'
 sleep $s
 
 # COMMENT BLOCK STARTS ====================
-if [ 1 == 0 ]; then
+if (1 == 0); then
 #--------------------------
 To set up a file containing all your api and other "secret keys" do the following.
 create a file called env.txt
@@ -115,3 +115,4 @@ code snipet == finish
 -------------------------------
 fi
 # COMMENT BLOCK ENDS ============================
+exit
