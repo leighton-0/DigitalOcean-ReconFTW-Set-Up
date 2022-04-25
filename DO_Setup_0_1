@@ -39,7 +39,7 @@ printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file is upladed to the \s\n'
 printf '============================================================\n\n'
 sleep $s
-mkdir ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
+touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
 printf '\n[+] Install script to  run the .env file\n'
