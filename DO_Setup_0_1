@@ -24,9 +24,9 @@ if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no 
     cd reconftw/
     ./install.sh
 fi
-printf '[+] reconftw alread exists\n'
+printf '\n[+] reconftw alread exists\n'
 sleep $s
-printf '[+] loading custom reconftw.cfg and amass config.ini files\n'
+printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
 rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
 rm -r ~/.config/amass/config.ini
@@ -42,10 +42,10 @@ sleep $s
 mkdir ~/reconftw/.env           # Place all API & secret keys in here
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
-printf '[+] Install script to  run the .env file\n'
+printf '\n[+] Install script to  run the .env file\n'
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh.git
-chmod +X setenv.sh
-source setenv.sh
+chmod +X ~/reconftw/setenv.sh
+source ~/reconftw/setenv.sh
 ./ setenv.sh
 
 printf '[+] Prove env file is working \n'
@@ -61,7 +61,7 @@ printf '============================================================\n\n'
 sleep $s
 
 # COMMENT BLOCK STARTS ====================
-if (1 == 0); then
+if [ 1 == 0 ]; then
 #--------------------------
 To set up a file containing all your api and other "secret keys" do the following.
 create a file called env.txt
