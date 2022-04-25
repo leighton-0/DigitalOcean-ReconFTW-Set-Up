@@ -4,7 +4,7 @@
 ##               Reconftw Set Up Script                             ##
 #######################################################################
 
-s=5                                  # Slows scritpt down so you can see whats going on
+s=7                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
@@ -18,18 +18,18 @@ fi
 sleep $s
 
 if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program
-    printf '[+] reconftw doesnt exists installing reconftw\n'
+    printf '\n[+] reconftw doesnt exists installing reconftw\n'
     sleep $s
     git clone https://github.com/six2dez/reconftw
     cd reconftw/
     ./install.sh
 fi
-printf '\n[+] reconftw alread exists\n'
+printf '\n[+] reconftw already exists\n'
 sleep $s
 printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
-rm -r ~/reconftw/reconftw.cfg
+rm -r ~/reconftw/reconftw.cfg 2> /dev/null
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
-rm -r ~/.config/amass/config.ini
+rm -r ~/.config/amass/config.ini 2> /dev/null
 wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
 sleep $s
 
@@ -61,58 +61,58 @@ printf '============================================================\n\n'
 sleep $s
 
 # COMMENT BLOCK STARTS ====================
-if (1 == 0); then
+#if (1 == 0); then
 #--------------------------
-To set up a file containing all your api and other "secret keys" do the following.
-create a file called env.txt
-the first entry is(for testing)
-    FIRST_NAME=Agnes
-    LAST_NAME=Obel
-copy all the api and other key to be read by reconftw (both config.ini and config.cfg) into it.
-For security i keep this on my local drive - not on github.
-After installation of reconftw I manually copy this env.txt file into the reconftw directory.
-There is probably a secure of doing this automatically - its on the TD list
-Next
-Create a script called <setenv.sh>.
-Copy the following into it
-    #!/bin/bash
-    # Show env vars
-    grep -v '^#' .env
-
-    # Export env vars
-    export $(grep -v '^#' .env | xargs)
-chmod +X setenv.sh
-source setenv.sh
-
-confirm env vars is working do below
-    echo "${FIRST_NAME} ${LAST_NAME}"
-should return.
-FIRST_NAME=Agnes
-LAST_NAME=Obel
-
-NOTE;
-You need to reference all api key environmentl variavbes in both the ini and cfg files
-
-code snipet ==start
-ELLOW="\e[33m"
-GREEN="\e[1;32m"
-RED="\e[1;31m"
-ENDCOLOR="\e[0m"
-
-echo -e "${YELLOW}"
-echo -e "====================================="
-echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
-echo -e "====================================="
-echo -e "| Thank you for using this script.  |"
-echo -e "| Give me a star if it's useful.    |"
-echo -e "====================================="
-echo -e "${ENDCOLOR}"
-echo -e "${YELLOW}"
-
-
-code snipet == finish
-
--------------------------------
-fi
+# To set up a file containing all your api and other "secret keys" do the following.
+# create a file called env.txt
+# the first entry is(for testing)
+#     FIRST_NAME=Agnes
+#     LAST_NAME=Obel
+# copy all the api and other key to be read by reconftw (both config.ini and config.cfg) into it.
+# For security i keep this on my local drive - not on github.
+# After installation of reconftw I manually copy this env.txt file into the reconftw directory.
+# There is probably a secure of doing this automatically - its on the TD list
+# Next
+# Create a script called <setenv.sh>.
+# Copy the following into it
+#     #!/bin/bash
+#     # Show env vars
+#     grep -v '^#' .env
+#
+#     # Export env vars
+#     export $(grep -v '^#' .env | xargs)
+# chmod +X setenv.sh
+# source setenv.sh
+#
+# confirm env vars is working do below
+#     echo "${FIRST_NAME} ${LAST_NAME}"
+# should return.
+# FIRST_NAME=Agnes
+# LAST_NAME=Obel
+#
+# NOTE;
+# You need to reference all api key environmentl variavbes in both the ini and cfg files
+#
+# code snipet ==start
+# ELLOW="\e[33m"
+# GREEN="\e[1;32m"
+# RED="\e[1;31m"
+# ENDCOLOR="\e[0m"
+#
+# echo -e "${YELLOW}"
+# echo -e "====================================="
+# echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
+# echo -e "====================================="
+# echo -e "| Thank you for using this script.  |"
+# echo -e "| Give me a star if it's useful.    |"
+# echo -e "====================================="
+# echo -e "${ENDCOLOR}"
+# echo -e "${YELLOW}"
+#
+#
+# code snipet == finish
+#
+# -------------------------------
+# fi
 # COMMENT BLOCK ENDS ============================
-exit
+#exit
