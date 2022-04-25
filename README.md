@@ -7,11 +7,11 @@ This script is to install ReconFTW on a Digital Ocean Droplet. Its aim, is to st
 It was built for a debian platfrom and assumes that has been initialised within a DO Droplet.
 It carries out the following
 update and upgrades
-Installs 
+Installs
   reconftw
 
 ## Installation
-The ?????? rev 0 represents the initial release. 
+The ?????? rev 0 represents the initial release.
 All alpha revisions are development revs
 
 Copy fillowing inti the droplet CL:-
@@ -20,6 +20,3 @@ curl -k -s https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Se
 
 
 I would welcome comments and advice. email L22@clucas.au
-
-
-

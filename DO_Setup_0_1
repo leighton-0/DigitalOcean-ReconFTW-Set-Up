@@ -27,29 +27,10 @@ if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no 
 fi
 printf '[+] reconftw alread exists\n'
 sleep $s1
---------------------------
-#Load custome config file for reconftw and amass. This is over writted each time the this script is run.
-#The .bak file is'nt overwritten if it alreasy exists - only the original should be seen here
-# Reconftw.cfg
---------------------------
-if [ -d ~/reconftw/reconftw.cfg.bak] then
-printf '[+] install new custom reconftw config file\n'
+printf '[+] loading custom reconftw.cfg and amass config.ini files\n'
 rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
-fi
-# If this hasnpt been done before then copy .cfg to .bak
-printf '[+] backing up old .cfg file & install new custom config file\n'
-sleep $s1
-cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
-wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
-sleep $s1
----------------------------
-#Load custome config.ini file for amass This is over writted each time the this script is run.
-
-printf '[+] backing up old  amass .ini file & install custom .ini file\n'
-
-#cp ~/.config/amass/config.ini ~/.config/amass/config.ini.bak; rm -r ~/.config/amass/config.ini     #legacy
-mv ~/.config/amass/config.ini ~/.config/amass/config.ini.bak
+rm -r ~/.config/amass/config.ini
 wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
 sleep $s1
 
@@ -58,18 +39,27 @@ printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
 printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file is upladed to the \s\n'
 printf '============================================================\n\n'
-mkdir ~/.env
-upload script to run .env  <<=====
-remember to source it   <<====
-
+sleep $s1
 mkdir ~/reconftw/.env           # Place all API & secret keys in here
-
-printf '[+] The script to  run the .env file is upladed here\n'
+echo FIRST_NAME=Agnes >> ~/reconftw/.env
+echo LAST_NAME=Obel >> ~/reconftw/.env
+printf '[+] Install script to  run the .env file\n'
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh.git
 chmod +X setenv.sh
 source setenv.sh
 ./ setenv.sh
 
+printf '[+] Prove env file is working \n'
+echo "${FIRST_NAME} ${LAST_NAME}"
+sleep $s1
+printf '\n============================================================\n'
+printf '[+] Remember to add to the .env file all api keys \n'
+printf '[+] The empty .env file is created here\n'
+printf '[+] The script to  run the .env file needs to to included in the start script\n'
+printf '[+] targets are listed in targets.txt loaded in the reconftw dir\n'
+printf '[+] start script './ setenv.sh && ./reconftw.sh -d target.com -r
+printf '============================================================\n\n'
+sleep $s1
 
 # COMMENT BLOCK STARTS ====================
 if (1 == 0); then
