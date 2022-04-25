@@ -10,7 +10,7 @@ apt install wget
 apt install git
 
 
-printf '\nn[+] install reports directory zz_reports'
+printf '\n[+] install reports directory zz_reports\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
     mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
@@ -39,7 +39,7 @@ printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file is upladed to the \s\n'
 printf '============================================================\n\n'
 sleep $s
-mkdir ~/reconftw/.env           # Place all API & secret keys in here
+mkdir ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
 printf '\n[+] Install script to  run the .env file\n'
