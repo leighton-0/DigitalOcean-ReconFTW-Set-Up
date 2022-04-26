@@ -28,9 +28,9 @@ printf '\n[+] reconftw already exists\n'
 sleep $s
 printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
 rm -r ~/reconftw/reconftw.cfg 2> /dev/null
-wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
+wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/reconftw.cfg
 rm -r ~/.config/amass/config.ini 2> /dev/null
-wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
+wget -P ~/.config/amass/ https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/config.ini
 sleep $s
 
 printf '\n============================================================\n'
