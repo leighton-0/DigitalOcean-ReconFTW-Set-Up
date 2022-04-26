@@ -43,7 +43,7 @@ touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in her
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
 printf '\n[+] Install script to  run the .env file\n'
-wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh.git
+wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh
 chmod +X ~/reconftw/setenv.sh
 source ~/reconftw/setenv.sh
 ./ setenv.sh
