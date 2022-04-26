@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 ######################################################################
@@ -34,27 +35,24 @@ rm -r ~/.config/amass/config.ini 2> /dev/null
 wget -P ~/.config/amass/ https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/config.ini
 sleep $s
 
-printf '\n============================================================\n'
-printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
-printf '[+] The empty .env file is created here\n'
-printf '[+] The script to  run the .env file is upladed to the \s\n'
-printf '============================================================\n\n'
+printf '\n[+] loading custom setenv.sh script \n'
 sleep $s
-touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
-echo FIRST_NAME=Agnes >> ~/reconftw/.env
-echo LAST_NAME=Obel >> ~/reconftw/.env
-printf '\n[+] Install script to  run the .env file\n'
-wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/setenv.sh
-chmod +X ~/reconftw/setenv.sh
+if [ !-d ~/reconftw/setenv.sh ]; then
+  touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
+  echo FIRST_NAME=Agnes >> ~/reconftw/.env
+  echo LAST_NAME=Obel >> ~/reconftw/.env
+  printf '\n[+] Install script to  run the .env file\n'
+  wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/setenv.sh
+  chmod +X ~/reconftw/setenv.sh
+fi
 source ~/reconftw/setenv.sh
 ./ setenv.sh
-
+printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
+printf '[+] REMEMBER TO UPLOAD THE targets.txt FILE manually \n'
 printf '[+] Prove env file is working \n'
 echo "${FIRST_NAME} ${LAST_NAME}"
 sleep $s
 printf '\n============================================================\n'
-printf '[+] Remember to add to the .env file all api keys \n'
-printf '[+] The empty .env file is created here\n'
 printf '[+] The script to  run the .env file needs to to included in the start script\n'
 printf '[+] targets are listed in targets.txt loaded in the reconftw dir\n'
 printf '[+] start script './ setenv.sh && ./reconftw.sh -d target.com -r
