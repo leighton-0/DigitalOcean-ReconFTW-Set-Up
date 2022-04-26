@@ -27,8 +27,9 @@ fi
 printf '\n[+] reconftw already exists\n'
 sleep $s
 printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
+sleep $s
 rm -r ~/reconftw/reconftw.cfg 2> /dev/null
-wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/reconftw.cfg
+wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/reconftw.cfg
 rm -r ~/.config/amass/config.ini 2> /dev/null
 wget -P ~/.config/amass/ https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/config.ini
 sleep $s
@@ -43,7 +44,7 @@ touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in her
 echo FIRST_NAME=Agnes >> ~/reconftw/.env
 echo LAST_NAME=Obel >> ~/reconftw/.env
 printf '\n[+] Install script to  run the .env file\n'
-wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/setenv.sh
+wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/setenv.sh
 chmod +X ~/reconftw/setenv.sh
 source ~/reconftw/setenv.sh
 ./ setenv.sh
