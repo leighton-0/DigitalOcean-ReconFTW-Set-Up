@@ -43,10 +43,10 @@ if [ ! -d ~/reconftw/setenv.sh ]; then
   echo LAST_NAME=Obel >> ~/reconftw/.env
   printf '\n[+] Install script to  run the .env file\n'
   wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/setenv.sh
-  chmod +X ~/reconftw/setenv.sh
+  chmod +x ~/reconftw/setenv.sh
 fi
 source ~/reconftw/setenv.sh
-./ setenv.sh
+./setenv.sh
 printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
 printf '[+] REMEMBER TO UPLOAD THE targets.txt FILE manually \n'
 printf '[+] Prove env file is working \n'
