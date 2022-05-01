@@ -4,7 +4,7 @@
 grep -v '^#' .env
 
 # Export env vars
-export $(grep -v '^#' .env | xargs)
+export $(grep -v '^#' ~/reconftw/.env | xargs)
     # export defines environmental variable
     # -v  Invert the sense of matching, to select non-matching lines
     # ^#  selects lines starting with #
