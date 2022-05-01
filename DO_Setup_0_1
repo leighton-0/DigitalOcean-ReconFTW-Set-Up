@@ -42,7 +42,7 @@ if [ ! -d ~/reconftw/setenv.sh ]; then
   echo FIRST_NAME=Agnes >> ~/reconftw/.env
   echo LAST_NAME=Obel >> ~/reconftw/.env
   printf '\n[+] Install script to  run the .env file\n'
-  wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/blob/main/setenv.sh
+  wget -P ~/reconftw https://github.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/setenv.sh
   chmod +x ~/reconftw/setenv.sh
 fi
 source ~/reconftw/setenv.sh
