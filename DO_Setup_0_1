@@ -46,10 +46,10 @@ if [ ! -d ~/reconftw/setenv.sh ]; then
   wget -P '~/reconftw' https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/setenv.sh
   printf '\n[+] Upload .env file\n'
   sleep $s
-  wget -P '~/reconftw' https://raw.githubusercontent.com/leighton-0/reconftw-data/main/.env?token=GHSAT0AAAAAABUJXRGKCGJB2IKBCW56667QYTVTZ4Q
+  wget -P '~/reconftw' https://raw.githubusercontent.com/leighton-0/reconftw-data/main/.env?token=GHSAT0AAAAAABUJXRGLW6F5NVFK2S2RXOO4YTWSIUA
   printf '\n[+] Upload targets.txt file\n'
   sleep $s
-  wget -P '~reconftw' https://raw.githubusercontent.com/leighton-0/reconftw-data/main/targets.txt?token=GHSAT0AAAAAABUJXRGLMGCKAVSTH2C2SEGEYTVT35A
+  wget -P '~reconftw' https://raw.githubusercontent.com/leighton-0/reconftw-data/main/targets.txt?token=GHSAT0AAAAAABUJXRGLDDHUVEDHYYBHITDEYTWSJMQ
   chmod +x ~/reconftw/setenv.sh
 fi
 source ~/reconftw/setenv.sh
@@ -62,7 +62,7 @@ sleep $s
 printf '\n============================================================\n'
 printf '[+] The script to  run the .env file needs to to included in the start script\n'
 printf '[+] targets are listed in targets.txt loaded in the reconftw dir\n'
-printf '[+] start script './ setenv.sh && ./reconftw.sh -d target.com -r
+printf '[+] start script './ setenv.sh && ./reconftw.sh -l targets.txt -r -o ~/zz_reports
 printf '============================================================\n\n'
 sleep $s
 
