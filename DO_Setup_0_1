@@ -5,11 +5,10 @@
 ##               Reconftw Set Up Script                             ##
 #######################################################################
 
-s=7                                  # Slows scritpt down so you can see whats going on
+s=4                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
-
 
 printf '\n[+] install reports directory zz_reports\n'
 
@@ -18,15 +17,18 @@ if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. I
 fi
 sleep $s
 
-if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program
+if [ ! -d ~/reconftw ]
+then           #Check it Reconftw already exists. If no then loads reconftw program
     printf '\n[+] reconftw doesnt exists installing reconftw\n'
     sleep $s
     git clone https://github.com/six2dez/reconftw
     cd reconftw/
     ./install.sh
-fi
+else
 printf '\n[+] reconftw already exists\n'
+fi
 sleep $s
+
 printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
 sleep $s
 rm -r ~/reconftw/reconftw.cfg 2> /dev/null
@@ -37,19 +39,21 @@ sleep $s
 
 printf '\n[+] loading custom setenv.sh script & .env file \n'
 sleep $s
-if [ ! -d ~/reconftw/setenv.sh ]; then
+if [ ! -d ~/reconftw/setenv.sh ]
+then
   touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
   echo FIRST_NAME=Agnes >> ~/reconftw/.env
   echo LAST_NAME=Obel >> ~/reconftw/.env
   printf '\n[+] Install script to  run the .env file\n'
   sleep $s
   wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/setenv.sh
-  printf '\n[+] Upload .env file\n'
+  printf '\n[+] Upload .env file manually\n'
   sleep $s
-  wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/reconftw-data/main/.env?token=GHSAT0AAAAAABUJXRGLW6F5NVFK2S2RXOO4YTWSIUA
-  printf '\n[+] Upload targets.txt file\n'
+  #wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/reconftw-data/main/.env?token=GHSAT0AAAAAABUJXRGLW6F5NVFK2S2RXOO4YTWSIUA
+  printf '\n[+] Upload targets.txt file do this manually\n'
   sleep $s
-  https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/targets.txt
+  touch ~/reconftw/targets.txt 2> /dev/null
+  #wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/targets.txt
   chmod +x ~/reconftw/setenv.sh
 fi
 source ~/reconftw/setenv.sh
