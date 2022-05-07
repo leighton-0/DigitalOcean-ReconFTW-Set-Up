@@ -1,0 +1,17 @@
+
+##################################################
+##              	TARGET LIST		            		##
+##################################################
+
+
+#	To run from this list;
+#	./reconftw.sh -l targets.txt -r
+
+#blacklivesmatter.com
+#oyster_owners.com
+#imigrasi.go.id
+#mpa.gov.sg
+#ecosymbiosis.com
+#warussianschool.com.au
+#dephub.go.id
+scanme.nmap.org
