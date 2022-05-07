@@ -49,7 +49,7 @@ if [ ! -d ~/reconftw/setenv.sh ]; then
   wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/reconftw-data/main/.env?token=GHSAT0AAAAAABUJXRGLW6F5NVFK2S2RXOO4YTWSIUA
   printf '\n[+] Upload targets.txt file\n'
   sleep $s
-  wget -P ~reconftw https://raw.githubusercontent.com/leighton-0/reconftw-data/main/targets.txt?token=GHSAT0AAAAAABUJXRGLDDHUVEDHYYBHITDEYTWSJMQ
+  https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/targets.txt
   chmod +x ~/reconftw/setenv.sh
 fi
 source ~/reconftw/setenv.sh
@@ -65,7 +65,7 @@ printf '[+] targets are listed in targets.txt loaded in the reconftw dir\n'
 printf '[+] start script './setenv.sh && ./reconftw.sh -l targets.txt -r -o ~/zz_reports
 printf '============================================================\n\n'
 sleep $s
-
+echo "DONE! :)"
 # COMMENT BLOCK STARTS ====================
 #if (1 == 0); then
 #--------------------------
