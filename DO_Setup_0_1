@@ -10,7 +10,7 @@ s=2                                  # Slows scritpt down so you can see whats g
 apt install wget
 apt install git
 
-cat <<EOF>> .bashrc
+cat> .bashrc <<EOF
 test line1
 test line 2
 EOF
