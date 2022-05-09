@@ -5,7 +5,7 @@
 ##               Reconftw Set Up Script                             ##
 #######################################################################
 
-s=4                                  # Slows scritpt down so you can see whats going on
+s=2                                  # Slows scritpt down so you can see whats going on
 
 apt install wget
 apt install git
