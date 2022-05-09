@@ -11,8 +11,9 @@ apt install wget
 apt install git
 
 cat>> .bashrc <<EOF
-test line3
-test line4
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 EOF
 
 printf '\n[+] install reports directory zz_reports\n'
