@@ -10,12 +10,19 @@ s=4                                  # Slows scritpt down so you can see whats g
 apt install wget
 apt install git
 
+cat <<EOF>> .bashrc
+test line1
+test line 2
+EOF
+
 printf '\n[+] install reports directory zz_reports\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
     mkdir ~/zz_reports                #Need to update the .cfg file to reflect custom save dirrectory (although not wk for me - wip)
 fi
 sleep $s
+
+printf '\n[+] upload latest .bash_alias file\n'
 
 if [ ! -d ~/reconftw ]
 then           #Check it Reconftw already exists. If no then loads reconftw program
