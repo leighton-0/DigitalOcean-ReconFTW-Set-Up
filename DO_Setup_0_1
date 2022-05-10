@@ -10,10 +10,10 @@ s=1                                  # Slows scritpt down so you can see whats g
 apt install wget
 apt install git
 
-# if [ ! -f ~/.bashrc.bak ]   Check if bashrc.bak has already been copied. If yes then skip
-# then
-#     # fix bashrc
-#     cp ~/.bashrc ~/.bashrc.bak          # bak Up bashrc incase I fuck it up
+if [ ! -f ~/.bashrc.bak ]   Check if bashrc.bak has already been copied. If yes then skip
+then
+    # fix bashrc
+    cp ~/.bashrc ~/.bashrc.bak          # bak Up bashrc incase I fuck it up
 #   #  echo '. ~/.bash_aliases' >> ~/.bashrc
 #
 # cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
