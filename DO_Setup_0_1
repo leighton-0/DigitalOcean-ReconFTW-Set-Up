@@ -13,7 +13,7 @@ apt install git
 if [ ! -f ~/.bashrc.bak ]   Check if bashrc.bak has already been copied. If yes then skip
 then
     # fix bashrc
-    cp ~/.bashrc ~/.bashrc.bak          # bak Up bashrc incase I fuck it up
+    cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
   #  echo '. ~/.bash_aliases' >> ~/.bashrc
 fi
 # cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
