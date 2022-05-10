@@ -14,17 +14,17 @@ if [ ! -f ~/.bashrc.bak ]   Check if bashrc.bak has already been copied. If yes 
 then
     # fix bashrc
     cp ~/.bashrc ~/.bashrc.bak          # bak Up bashrc incase I fuck it up
-#   #  echo '. ~/.bash_aliases' >> ~/.bashrc
-#
+  #  echo '. ~/.bash_aliases' >> ~/.bashrc
+fi
 # cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
 # if [ -f ~/.bash_aliases ]; then
 #     . ~/.bash_aliases
 # fi
 # EOF
-#
-# wget -P ~/.bash_aliases https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/aliases
-#
-# . .bashrc && . .bash_aliases
+
+wget -P ~/.bash_aliases https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/aliases
+
+. .bashrc && . .bash_aliases
 
 printf '\n[+] install reports directory zz_reports\n'
 
