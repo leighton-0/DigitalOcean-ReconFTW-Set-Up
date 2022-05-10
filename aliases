@@ -11,7 +11,7 @@
     alias ba='gedit .bash_aliases'
     alias bc='gedit .bashrc'
 
-    alias t="testing"
+    alias t=echo "testing"
 
     alias srr='. .bashrc && . .bash_aliases'
     alias jor='gedit /root/Documents/journal'

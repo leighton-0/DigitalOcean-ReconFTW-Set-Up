@@ -23,7 +23,7 @@ then
 fi
 EOF
 
-wget -P ~/.bash_aliases https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/aliases
+wget -P .bash_aliases https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/aliases
 
 . .bashrc && . .bash_aliases
 exit
