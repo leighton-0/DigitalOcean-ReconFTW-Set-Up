@@ -10,7 +10,8 @@ s=1                                  # Slows scritpt down so you can see whats g
 apt install wget
 apt install git
 
-if [ ! -f ~/.bashrc.bak ]   Check if bashrc.bak has already been copied. If yes then skip
+
+if [ ! -f ~/.bashrc.bak ]   #Check if bashrc.bak has already been copied. If yes then skip
 then
     # fix bashrc
     cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
