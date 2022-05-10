@@ -111,7 +111,7 @@ echo "DONE! :)"
 #     export $(grep -v '^#' .env | xargs)
 # chmod +X setenv.sh
 # source setenv.sh
-#
+#ss
 # confirm env vars is working do below
 #     echo "${FIRST_NAME} ${LAST_NAME}"
 # should return.
