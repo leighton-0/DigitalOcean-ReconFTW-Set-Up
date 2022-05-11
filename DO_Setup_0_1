@@ -20,7 +20,7 @@ sleep $s
 if [ ! -f ~/.bashrc.bak ]   #Check if bashrc.bak has already been copied. If yes then skip
 then
     cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
-
+exit
     # Upload my standard aliases file
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
@@ -31,7 +31,7 @@ then
         . ~/.bash_aliases
     EOF
   fi
-exits
+
 
 
 # Customise .bashrc file
