@@ -11,18 +11,18 @@ apt install wget
 apt install git
 
 printf '\n============================================================\n'
-printf '[+]  Upload standard .bash_aliases & Standard .bashrc. \n'
+printf '[+]  Upload standard .bash_aliases & upgrades to .bashrc. \n'
 printf '============================================================\n\n'
 sleep $s
 
 
-# Back UP original .bashrc incase I Fuck it up
+# Back-up original .bashrc incase I Fuck it up
 if [ ! -f ~/.bashrc.bak ]   #Check if bashrc.bak has already been copied. If yes then skip
 then
     cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
 
     # Add pointer to new .bash_aliases
-    cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
+    cat <<-EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]
     then
         . ~/.bash_aliases
@@ -35,7 +35,8 @@ wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Fun
 # Customise .bashrc file
 echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc # && source ~/.bashrc        # ignore duplicate commands in the history.
 echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc# && source ~/.bashrc
-
+#else
+#  rm -r ~/.bashrc && cp ~/.bashrc.bak  ~/.bashrc
 fi
 
 . .bashrc && . .bash_aliases
