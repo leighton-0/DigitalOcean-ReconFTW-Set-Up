@@ -26,8 +26,8 @@ then
     if [ -f ~/.bash_aliases ]
     then
         . ~/.bash_aliases
-    fi
     EOF
+  fi
 
 # Upload my standard aliases file
 wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
