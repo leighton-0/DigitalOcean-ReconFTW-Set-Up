@@ -26,7 +26,11 @@ then
 
     # Upload my standard aliases file
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
-exit
+
+
+    # COMMENT BLOCK STARTS ====================
+    if (1 == 0); then
+
     # Add pointer to new .bash_aliases
     cat << EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]
@@ -34,7 +38,7 @@ exit
         . ~/.bash_aliases
 EOF
 fi
-Exit
+
 
 
 # Customise .bashrc file
@@ -111,6 +115,13 @@ printf '[+] start script './setenv.sh && ./reconftw.sh -l targets.txt -r -o ~/zz
 printf '============================================================\n\n'
 sleep $s
 echo "DONE! :)"
+
+# -------------------------------
+fi
+# COMMENT BLOCK ENDS ============================
+
+
+
 # COMMENT BLOCK STARTS ====================
 #if (1 == 0); then
 #--------------------------
