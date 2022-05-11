@@ -22,7 +22,7 @@ then
     cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
 
     # Add pointer to new .bash_aliases
-    cat <<-'EOF' >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
+    cat <<- 'EOF' >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]
     then
         . ~/.bash_aliases
