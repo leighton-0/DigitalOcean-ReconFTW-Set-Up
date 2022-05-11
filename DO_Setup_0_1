@@ -10,24 +10,39 @@ s=1                                  # Slows scritpt down so you can see whats g
 apt install wget
 apt install git
 
-# Fix .bashre
+printf '\n============================================================\n'
+printf '[+]  Upload standard .bash_aliases & Standard .bashrc. \n'
+printf '============================================================\n\n'
+sleep $s
+
+
+# Back UP original .bashrc incase I Fuck it up
 if [ ! -f ~/.bashrc.bak ]   #Check if bashrc.bak has already been copied. If yes then skip
 then
     cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
-fi
-cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
-if [ -f ~/.bash_aliases ]
-then
-    . ~/.bash_aliases
-    echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc && source ~/.bashrc        # ignore duplicate commands in the history.
-    echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc && source ~/.bashrc
-fi
-EOF
 
+    # Add pointer to new .bash_aliases
+    cat>> .bashrc <<EOF           # use heredoc to add multiple lines to .bashrc
+    if [ -f ~/.bash_aliases ]
+    then
+        . ~/.bash_aliases
+    fi
+    EOF
+
+# Upload my standard aliases file
 wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
+
+# Customise .bashrc file
+echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc # && source ~/.bashrc        # ignore duplicate commands in the history.
+echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc# && source ~/.bashrc
+
+fi
 
 . .bashrc && . .bash_aliases
 exit
+
+
+
 printf '\n[+] install reports directory zz_reports\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
