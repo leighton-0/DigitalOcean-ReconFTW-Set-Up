@@ -7,6 +7,9 @@
 
 s=1                                  # Slows scritpt down so you can see whats going on
 
+
+
+
 apt install wget
 apt install git
 
