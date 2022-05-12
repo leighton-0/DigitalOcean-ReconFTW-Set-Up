@@ -52,7 +52,7 @@ if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. I
 fi
 sleep $s1
 
-if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program        
+if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no then loads reconftw program
     printf '[+] reconftw doesnt exists installing reconftw\n'
     sleep $s1
     git clone https://github.com/six2dez/reconftw
@@ -61,25 +61,25 @@ if [ ! -d ~/reconftw ]; then           #Check it Reconftw already exists. If no 
 fi
 printf '[+] reconftw alread exists\n'
 sleep $s1
- 
+
 #Load custome config file for reconftw and amass. This is over writted each time the this script is run.
-  
+
 printf '[+] backing up old .cfg file & install new custom config file\n'
 sleep $s1
 
 cp ~/reconftw/reconftw.cfg ~/reconftw/reconftw.cfg.bak; rm -r ~/reconftw/reconftw.cfg
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set_Up/master/reconftw.cfg
 sleep $s1
-    
+
 #Load custome config.ini file for amass This is over writted each time the this script is run.
-    
+
 printf '[+] backing up old  amass .ini file & install custom .ini file\n'
 
 #cp ~/.config/amass/config.ini ~/.config/amass/config.ini.bak; rm -r ~/.config/amass/config.ini     #legacy
 mv ~/.config/amass/config.ini ~/.config/amass/config.ini.bak
 wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DO/master/config.ini
 sleep $s1
-    
+
 printf '\n============================================================\n'
 printf '[+] REMEMBER TO UPLOAD THE .env FILE CONTAINING api keys \n'
 printf '[+] The empty .env file is created here\n'
@@ -96,7 +96,5 @@ wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-Rec
 chmod +X setenv.sh
 source setenv.sh
 ./ setenv.sh
-        
+
 #./reconftw.sh -d target.com -r
-
-

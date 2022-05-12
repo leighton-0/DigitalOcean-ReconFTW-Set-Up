@@ -5,7 +5,6 @@
 
 # Miscelanious
 
-    
     alias sdn='shutdown now'
     alias v1='grep VERSION /etc/os-release'
     alias v2='uname -a'
