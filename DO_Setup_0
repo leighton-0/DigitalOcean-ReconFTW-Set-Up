@@ -7,6 +7,12 @@
 
 s=1                                  # Slows scritpt down so you can see whats going on
 
+printf '\n============================================================\n'
+printf '[+] Updating System\n'
+printf '============================================================\n\n'
+apt update -y
+apt upgrade -y
+sleep $s
 
 apt install wget
 apt install git
@@ -19,21 +25,21 @@ sleep $s
 
 # Back-up original .bashrc incase I Fuck it up
 if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. If yes then skip
-  cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
+    cp /root/.bashrc /root/.bashrc.bak          # bak Up bashrc incase I fuck it up
 
-  # Upload my standard aliases file
-  wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
+    # Upload my standard aliases file
+    wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
-  # Add pointer to new .bash_aliases
-  cat << EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
-  if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-    EOF
-  fi
+    # Add pointer to new .bash_aliases
+    cat << EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
+    if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+        EOF
+    fi
 
-  # Customise .bashrc file
-  echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc # && source ~/.bashrc        # ignore duplicate commands in the history.
-  echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc# && source ~/.bashrc
+    # Customise .bashrc file
+    echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc # && source ~/.bashrc        # ignore duplicate commands in the history.
+    echo 'export HISTTIMEFORMAT= %D' >> ~/.bashrc# && source ~/.bashrc
 fi
 
 . .bashrc && . .bash_aliases    # source .bashrc & .bash_aliases
@@ -48,7 +54,49 @@ if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. I
 fi
 sleep $s
 
-printf '\n[+] upload latest .bash_alias file\n'
+# load functions (zz_functions)
+# printf '\n============================================================\n'
+# printf '[+] install functions in file zz_functions\n'
+# printf   "%s\n" "$now"
+# printf '============================================================\n\n'
+# #mkdir -p ~/zz_functions 2>/dev/null
+# #rm -r ~/zz_functions 2>/dev/null || true
+# rm -r ~/zz_functions &> /dev/null
+# wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_functions
+# sleep $s
+#
+#
+# #upload scripts (zz_scripts)
+# printf '\n============================================================\n'
+# printf '[+] install scripts in file zz_scripts\n'
+# printf '============================================================\n\n'
+# #mkdir -p ~/zz_scripts 2>/dev/null
+# #rm -r ~/zz_scripts 2>/dev/null || true
+# rm -r ~/zz_scripts &> /dev/null
+# wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_scripts
+# sleep $s
+
+# printf '\n============================================================\n'
+# printf '[+] install NordVPN\n'
+# printf '============================================================\n\n'
+# if [ ! -d '~/nordvpn*']
+# then
+#     wget https://raw.githubusercontent.com/leighton-0/kali-setup/master/nordvpn-release_1.0.0_all.deb
+#     apt install -y ./nordvpn-release_1.0.0_all.deb
+# fi
+# apt update
+# apt install nordvpn
+#
+# # COMMENT STARTS ===================THIS SECTION ISN'T WORKING
+# if (1 == 0); then
+#
+# nordvpn login --username leig@clucas.eu --password iloveanna
+# sleep 5
+# #nordvpn connect "#656"
+# #nordvpn -c -n "United States #3710"
+# nordvpn connect --group Dedicated_IP Germany
+# sleep 10
+# nordvpn status
 
 if [ ! -d ~/reconftw ]
 then           #Check it Reconftw already exists. If no then loads reconftw program
