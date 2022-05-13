@@ -111,7 +111,7 @@ printf '\n[+] loading custom setenv.sh script & .env file \n'
 printf '============================================================\n\n'
 
 sleep $s
-if [ ! -d ~/reconftw/setenv.sh ]
+if [ ! -f ~/reconftw/setenv.sh ]
 then
   touch ~/reconftw/.env 2> /dev/null          # Place all API & secret keys in here
   echo FIRST_NAME=Agnes >> ~/reconftw/.env
