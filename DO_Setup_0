@@ -37,7 +37,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
 EOF
-    fi
+fi
 
     # Customise .bashrc file
     echo 'export HISTCONTROL=ignoredups' >>  ~/.bashrc # && source ~/.bashrc        # ignore duplicate commands in the history.
