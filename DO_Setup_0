@@ -144,7 +144,7 @@ sleep $s
 echo "DONE! :)"
 
 # -------------------------------
-fi
+
 # COMMENT BLOCK ENDS ============================
 
 
@@ -188,15 +188,15 @@ fi
 # RED="\e[1;31m"
 # ENDCOLOR="\e[0m"
 #
-# echo -e "${YELLOW}"
-# echo -e "====================================="
-# echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
-# echo -e "====================================="
-# echo -e "| Thank you for using this script.  |"
-# echo -e "| Give me a star if it's useful.    |"
-# echo -e "====================================="
-# echo -e "${ENDCOLOR}"
-# echo -e "${YELLOW}"
+echo -e "${YELLOW}"
+echo -e "====================================="
+echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
+echo -e "====================================="
+echo -e "| Thank you for using this script.  |"
+echo -e "| Give me a star if it's useful.    |"
+echo -e "====================================="
+echo -e "${ENDCOLOR}"
+echo -e "${YELLOW}"
 #
 #
 # code snipet == finish
