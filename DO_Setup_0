@@ -4,6 +4,8 @@
 ######################################################################
 ##               Reconftw Set Up Script                             ##
 #######################################################################
+# To loginto a droplet use ==>> ssh -i myssh1 root@159.223.234.137
+#  alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
 
 s=1                                  # Slows scritpt down so you can see whats going on
 
@@ -31,7 +33,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
     # Add pointer to new .bash_aliases
-    cat << EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
+    cat <<- EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
         EOF
@@ -46,7 +48,7 @@ fi
 
 
 printf '\n============================================================\n'
-printf '\n[+] install reports directory zz_reports\n'
+printf '\n[+] create reports directory zz_reports\n'
 printf '============================================================\n\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
@@ -54,28 +56,16 @@ if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. I
 fi
 sleep $s
 
-# load functions (zz_functions)
-# printf '\n============================================================\n'
-# printf '[+] install functions in file zz_functions\n'
-# printf   "%s\n" "$now"
-# printf '============================================================\n\n'
-# #mkdir -p ~/zz_functions 2>/dev/null
-# #rm -r ~/zz_functions 2>/dev/null || true
-# rm -r ~/zz_functions &> /dev/null
-# wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_functions
-# sleep $s
-#
-#
-# #upload scripts (zz_scripts)
-# printf '\n============================================================\n'
-# printf '[+] install scripts in file zz_scripts\n'
-# printf '============================================================\n\n'
-# #mkdir -p ~/zz_scripts 2>/dev/null
-# #rm -r ~/zz_scripts 2>/dev/null || true
-# rm -r ~/zz_scripts &> /dev/null
-# wget https://raw.githubusercontent.com/Gracetown58/DO/master/zz_scripts
-# sleep $s
 
+printf '\n============================================================\n'
+printf '[+] upload functions to directory zz_functions\n'
+printf '============================================================\n\n'
+
+rm -r ~/zz_functions/functions &> /dev/null
+wget -P ~/zz_functions https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/functions
+sleep $s
+#
+# COMMENTED OUT FOR THE TIME BEING
 # printf '\n============================================================\n'
 # printf '[+] install NordVPN\n'
 # printf '============================================================\n\n'
@@ -98,8 +88,7 @@ sleep $s
 # sleep 10
 # nordvpn status
 
-if [ ! -d ~/reconftw ]
-then           #Check it Reconftw already exists. If no then loads reconftw program
+if [ ! -d ~/reconftw ]; then    #Check it Reconftw already exists. If no then loads reconftw program
     printf '\n[+] reconftw doesnt exists installing reconftw\n'
     sleep $s
     git clone https://github.com/six2dez/reconftw
@@ -110,7 +99,11 @@ printf '\n[+] reconftw already exists\n'
 fi
 sleep $s
 
-printf '\n[+] loading custom reconftw.cfg and amass config.ini files\n'
+
+printf '\n============================================================\n'
+printf '\n[+] upload custom reconftw.cfg and amass config.ini files\n'
+printf '============================================================\n\n'
+
 sleep $s
 rm -r ~/reconftw/reconftw.cfg 2> /dev/null
 wget -P ~/reconftw https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/reconftw.cfg
@@ -118,7 +111,10 @@ rm -r ~/.config/amass/config.ini 2> /dev/null
 wget -P ~/.config/amass/ https://raw.githubusercontent.com/leighton-0/DigitalOcean-ReconFTW-Set-Up/main/config.ini
 sleep $s
 
+printf '\n============================================================\n'
 printf '\n[+] loading custom setenv.sh script & .env file \n'
+printf '============================================================\n\n'
+
 sleep $s
 if [ ! -d ~/reconftw/setenv.sh ]
 then
