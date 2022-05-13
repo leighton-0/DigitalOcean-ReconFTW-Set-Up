@@ -7,7 +7,7 @@
 # To loginto a droplet use ==>> ssh -i myssh1 root@159.223.234.137
 #  alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
 
-s=1                                  # Slows scritpt down so you can see whats going on
+s=2                                  # Slows scritpt down so you can see whats going on
 
 printf '\n============================================================\n'
 printf '[+] Updating System\n'
@@ -182,12 +182,12 @@ echo "DONE! :)"
 # NOTE;
 # You need to reference all api key environmentl variavbes in both the ini and cfg files
 #
-# code snipet ==start
-# ELLOW="\e[33m"
-# GREEN="\e[1;32m"
-# RED="\e[1;31m"
-# ENDCOLOR="\e[0m"
-#
+code snipet ==start
+ELLOW="\e[33m"
+GREEN="\e[1;32m"
+RED="\e[1;31m"
+ENDCOLOR="\e[0m"
+
 echo -e "${YELLOW}"
 echo -e "====================================="
 echo -e "|    CLONE ALL REPOSITORY GITHUB    |"
