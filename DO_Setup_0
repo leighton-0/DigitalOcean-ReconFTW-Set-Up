@@ -43,7 +43,7 @@ EOF
 
 
 printf '\n============================================================\n'
-printf '\n[+] create reports directory zz_reports\n'
+printf '[+] create reports directory zz_reports\n'
 printf '============================================================\n\n'
 
 if [ ! -d ~/zz_reports ]; then        #Check if zz_reports dir already exists. If no then creates directory
