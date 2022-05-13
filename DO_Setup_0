@@ -33,7 +33,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
     # Add pointer to new .bash_aliases
-    cat << EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
+    cat <<- EOF >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
 EOF
