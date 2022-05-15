@@ -14,7 +14,7 @@ World
 EOF
 
 # Add pointer to new .bash_aliases
-cat <<'EOF'>>.bashrc
+cat <<"EOF" >>.bashrc
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
