@@ -36,7 +36,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     cat <<-"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the - allows indetaiton
     if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
-        EOF
+EOF
     fi
 
 printf '[+] heredoc worked\n'
