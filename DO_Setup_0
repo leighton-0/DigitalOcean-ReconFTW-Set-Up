@@ -40,11 +40,11 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
 #     #     . ~/.bash_aliases
 # EOF
 #     fi
-    cat <<EOF > output.txt
-    Hello user.
-    Welcome to DelftStack.
-    Hope you enjoy your stay.
-    EOF
+cat <<EOF > output.txt
+Hello user.
+Welcome to DelftStack.
+Hope you enjoy your stay.
+EOF
 
 
 printf '[+] heredoc worked\n'
