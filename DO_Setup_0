@@ -40,7 +40,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
 #     #     . ~/.bash_aliases
 # EOF
 #     fi
-cat <<  EOF > hello_world.txt
+cat <<EOF > hello_world.txt
 Hello
 World
 EOF
