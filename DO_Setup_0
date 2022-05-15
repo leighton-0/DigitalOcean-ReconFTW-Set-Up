@@ -39,6 +39,8 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
         EOF
     fi
 
+printf '[+] heredoc worked\n'
+sleep 10
 . .bashrc && . .bash_aliases    # source .bashrc & .bash_aliases
 
 
