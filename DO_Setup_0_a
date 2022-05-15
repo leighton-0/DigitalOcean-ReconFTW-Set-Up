@@ -17,5 +17,5 @@ EOF
 cat <<'EOF'>>.bashrc
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
-EOF
 fi
+EOF
