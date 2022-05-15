@@ -32,14 +32,20 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     # Upload my standard aliases file
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
-    # Add pointer to new .bash_aliases
-    cat <<"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the -
-    test insert
-    # allows indetation
-    # if [ -f ~/.bash_aliases ]; then
-    #     . ~/.bash_aliases
-EOF
-    fi
+#     # Add pointer to new .bash_aliases
+#     cat <<"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the -
+#     test insert
+#     # allows indetation
+#     # if [ -f ~/.bash_aliases ]; then
+#     #     . ~/.bash_aliases
+# EOF
+#     fi
+    cat <<EOF > output.txt
+    > Hello user.
+    > Welcome to DelftStack.
+    > Hope you enjoy your stay.
+    > EOF
+
 
 printf '[+] heredoc worked\n'
 sleep 10
