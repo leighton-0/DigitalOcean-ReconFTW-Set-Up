@@ -19,4 +19,3 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 EOF
 fi
-printf '[+] heredoc worked\n'
