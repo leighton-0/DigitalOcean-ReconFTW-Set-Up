@@ -5,9 +5,9 @@
 ##               Reconftw Set Up Script                             ##
 #######################################################################
 # To loginto a droplet use ==>> ssh -i myssh1 root@159.223.234.137
-#  alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
+#  example alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
 
-s=2                                  # Slows scritpt down so you can see whats going on
+s=2                  # Slows scritpt down so you can see whats going on
 
 printf '\n============================================================\n'
 printf '[+] Updating System\n'
@@ -32,14 +32,7 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
     # Upload my standard aliases file
     wget https://raw.githubusercontent.com/leighton-0/Aliases-Bashrc-Scripts-and-Functions/master/.bash_aliases
 
-#     # Add pointer to new .bash_aliases
-#     cat <<"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the -
-#     test insert
-#     # allows indetation
-#     # if [ -f ~/.bash_aliases ]; then
-#     #     . ~/.bash_aliases
-# EOF
-#     fi
+#     Add pointer to new .bash_aliases
 cat <<"EOF" >>.bashrc
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
@@ -47,8 +40,6 @@ fi
 EOF
 fi
 
-printf '[+] heredoc worked\n'
-sleep 10
 . .bashrc && . .bash_aliases    # source .bashrc & .bash_aliases
 
 
@@ -93,14 +84,26 @@ sleep $s
 # sleep 10
 # nordvpn status
 
+
+
+
+
 if [ ! -d ~/reconftw ]; then    #Check it Reconftw already exists. If no then loads reconftw program
+
+    printf '\n============================================================\n'
     printf '\n[+] reconftw doesnt exists installing reconftw\n'
+    printf '============================================================\n\n'
+
     sleep $s
     git clone https://github.com/six2dez/reconftw
     cd reconftw/
     ./install.sh
 else
-printf '\n[+] reconftw already exists\n'
+
+  printf '\n============================================================\n'
+  printf '\n[+] reconftw already exists\n'
+  printf '============================================================\n\n'
+
 fi
 sleep $s
 
