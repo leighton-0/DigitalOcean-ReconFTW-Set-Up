@@ -12,3 +12,12 @@ cat <<EOF > hello_world.txt
 Hello
 World
 EOF
+
+# Add pointer to new .bash_aliases
+cat <<"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the -
+test insert
+    #allows indetation
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+EOF
+fi
