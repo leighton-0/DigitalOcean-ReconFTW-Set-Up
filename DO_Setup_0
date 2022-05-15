@@ -45,7 +45,7 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 EOF
-
+fi
 
 printf '[+] heredoc worked\n'
 sleep 10
