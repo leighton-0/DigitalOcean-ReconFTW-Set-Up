@@ -41,10 +41,10 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
 # EOF
 #     fi
     cat <<EOF > output.txt
-    > Hello user.
-    > Welcome to DelftStack.
-    > Hope you enjoy your stay.
-    > EOF
+    Hello user.
+    Welcome to DelftStack.
+    Hope you enjoy your stay.
+    EOF
 
 
 printf '[+] heredoc worked\n'
