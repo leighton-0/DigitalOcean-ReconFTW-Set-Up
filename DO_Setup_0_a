@@ -8,11 +8,6 @@
 #  alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
 
 
-cat <<EOF > hello_world.txt
-Hello
-World
-EOF
-
 # Add pointer to new .bash_aliases
 cat <<"EOF" >>.bashrc
 if [ -f ~/.bash_aliases ]; then
