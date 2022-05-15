@@ -14,10 +14,9 @@ World
 EOF
 
 # Add pointer to new .bash_aliases
-cat <<"EOF" >>.bashrc           # use heredoc to add multiple lines to .bashrc. the -
-test insert
-    #allows indetation
+cat <<'EOF'>>.bashrc
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 EOF
 fi
+printf '[+] heredoc worked\n'
