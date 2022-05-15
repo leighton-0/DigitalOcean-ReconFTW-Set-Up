@@ -40,10 +40,17 @@ if [ ! -f ~/.bashrc.bak ]; then   #Check if bashrc.bak has already been copied. 
 #     #     . ~/.bash_aliases
 # EOF
 #     fi
-cat <<EOF> hello_world.txt
-Hello
-World
+
+cat << EOF > file.txt
+The current working directory is: $PWD
+You are logged in as: $(whoami)
 EOF
+
+
+# cat <<EOF > hello_world.txt
+# Hello
+# World
+# EOF
 
 
 printf '[+] heredoc worked\n'
