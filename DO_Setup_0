@@ -18,6 +18,7 @@ sleep $s
 
 apt install wget
 apt install git
+apt install tmux
 
 printf '\n============================================================\n'
 printf '[+]  Upload standard .bash_aliases & upgrades to .bashrc. \n'
