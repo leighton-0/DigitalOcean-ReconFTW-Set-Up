@@ -4,8 +4,8 @@
 ######################################################################
 ##               Reconftw Set Up Script                             ##
 #######################################################################
-# To loginto a droplet use ==>> ssh -i myssh1 root@159.223.234.137
-#  example alias do3='ssh -i myssh1 root@159.223.234.137'" >> .bashrc
+# To loginto a droplet use ==>> ssh -i myssh1 root@ipv4
+#  example alias do3='ssh -i myssh1 root@ipv4'" >> .bashrc
 
 s=2                  # Slows scritpt down so you can see whats going on
 
